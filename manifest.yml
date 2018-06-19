@@ -2,6 +2,10 @@
 applications:
 - name: spring-music
   memory: 1G
-  random-route: true
+  buildpack: java_buildpack_offline
   path: build/libs/spring-music-1.0.jar
+  routes:
+    - route: spring-music-eneros.apps.137.135.115.90.cf.pcfazure.com
+  services:
+   - springbootdemodb
 

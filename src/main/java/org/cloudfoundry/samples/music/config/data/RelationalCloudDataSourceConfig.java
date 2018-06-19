@@ -11,8 +11,10 @@ import javax.sql.DataSource;
 @Profile({"mysql-cloud", "postgres-cloud", "oracle-cloud", "sqlserver-cloud"})
 public class RelationalCloudDataSourceConfig extends AbstractCloudConfig {
 
+
     @Bean
     public DataSource dataSource() {
+
         return connectionFactory().dataSource();
     }
 

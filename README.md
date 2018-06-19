@@ -106,3 +106,9 @@ Database drivers for MySQL, Postgres, Microsoft SQL Server, MongoDB, and Redis a
 
 To connect to an Oracle database, you will need to download the appropriate driver (e.g. from http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html). Then make a `libs` directory in the `spring-music` project, and move the driver, `ojdbc7.jar` or `ojdbc8.jar`, into the `libs` directory.
 In `build.gradle`, uncomment the line `compile files('libs/ojdbc8.jar')` or `compile files('libs/ojdbc7.jar')` and run `./gradle assemble`
+
+
+*.sys.137.135.115.90.nip.io,*.api.sys.137.135.115.90.nip.io,*.app.137.135.115.90.nip.io,*.login.sys.137.135.115.90.nip.io,*.uaa.sys.137.135.115.90.nip.io,*.137.135.115.90.nip.io
+
+6e9ed4f2-9fc4-4ce8-a55b-b3be79b940e7
+springdemosp/FQCrr1YI7cASL4mE2ZMVXASngM8x6DVc6eMcVEy8rVA=
