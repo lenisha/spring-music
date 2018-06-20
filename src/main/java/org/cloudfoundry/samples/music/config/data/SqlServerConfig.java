@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Profile;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("sqlserver")
+@Profile({"sqlserver-local"})
 public class SqlServerConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(SqlServerConfig.class);
@@ -21,6 +21,7 @@ public class SqlServerConfig {
     @Bean
     @ConfigurationProperties("spring.datasource")
     public DataSource dataSource(DataSourceProperties properties) {
+        logger.info("CREATING SQL DS");
         DataSource ds = properties.initializeDataSourceBuilder().build();
         return ds;
     }

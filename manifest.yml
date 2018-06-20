@@ -7,5 +7,9 @@ applications:
   routes:
     - route: spring-music-eneros.apps.137.135.115.90.cf.pcfazure.com
   services:
-   - springbootdemodb
+   - springdemodb
+  env:
+    microsoft.vault.clientId: 6e9ed4f2-9fc4-4ce8-a55b-b3be79b940e7
+    microsoft.vault.clientSecret: FQCrr1YI7cASL4mE2ZMVXASngM8x6DVc6eMcVEy8rVA=
+    spring.datasource.dataSourceProperties.ColumnEncryptionSetting: Enabled
 

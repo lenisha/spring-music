@@ -110,5 +110,4 @@ In `build.gradle`, uncomment the line `compile files('libs/ojdbc8.jar')` or `com
 
 *.sys.137.135.115.90.nip.io,*.api.sys.137.135.115.90.nip.io,*.app.137.135.115.90.nip.io,*.login.sys.137.135.115.90.nip.io,*.uaa.sys.137.135.115.90.nip.io,*.137.135.115.90.nip.io
 
-6e9ed4f2-9fc4-4ce8-a55b-b3be79b940e7
-springdemosp/FQCrr1YI7cASL4mE2ZMVXASngM8x6DVc6eMcVEy8rVA=
+Column Encryption Setting = Enabled

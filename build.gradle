@@ -49,7 +49,10 @@ dependencies {
     runtime "com.h2database:h2"
     runtime "mysql:mysql-connector-java"
     runtime "org.postgresql:postgresql"
-    runtime "com.microsoft.sqlserver:mssql-jdbc"
+    compile "com.microsoft.sqlserver:mssql-jdbc"
+    compile 'com.microsoft.azure:azure-keyvault:1.0.0'
+    compile 'com.microsoft.azure:adal4j:1.6.0'
+
 
     // Webjars
     compile "org.webjars:bootstrap:3.1.1"
