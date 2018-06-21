@@ -108,6 +108,11 @@ To connect to an Oracle database, you will need to download the appropriate driv
 In `build.gradle`, uncomment the line `compile files('libs/ojdbc8.jar')` or `compile files('libs/ojdbc7.jar')` and run `./gradle assemble`
 
 
-*.sys.137.135.115.90.nip.io,*.api.sys.137.135.115.90.nip.io,*.app.137.135.115.90.nip.io,*.login.sys.137.135.115.90.nip.io,*.uaa.sys.137.135.115.90.nip.io,*.137.135.115.90.nip.io
 
-Column Encryption Setting = Enabled
+
+## PCF Azure SQL DB Failover services
+
+cf create-service azure-sqldb PremiumP2 springdemodb -c ./springmusicdb.json
+cf create-service azure-sqldb-failover-group SecondaryDatabaseWithFailoverGroup springfailoverdb -c ./failover.json
+cf bind-service spring-music springfailoverdb
+

@@ -13,11 +13,11 @@ management:
 spring:
   profiles: sqlserver-local
   datasource:
-    url: "jdbc:sqlserver://u91038d43430.database.windows.net:1433;database=u3b3afa7779b;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    url: "jdbc:sqlserver://springprimarydemo.database.windows.net:1433;database=u3b3afa7779b;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.windows.net;loginTimeout=30"
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     dataSourceProperties.ColumnEncryptionSetting: "Enabled"
-    username: ue0282ace92d
-    password: kJuXOKnQZPA6T/V1ApD3xQqEs9KiizuxKoWmxbpXn4HMAOJ6RmI9MA==
+    username: <DB USER>
+    password: <DB PASSWORD>
 
   jpa:
     properties:
@@ -26,8 +26,8 @@ spring:
 
 microsoft:
   vault: #springdemosp
-    clientId: 6e9ed4f2-9fc4-4ce8-a55b-b3be79b940e7
-    clientSecret: FQCrr1YI7cASL4mE2ZMVXASngM8x6DVc6eMcVEy8rVA=
+    clientId: <VAULT SP ClientID>
+    clientSecret: <VAULT SP Client Secret>
 
 ---
 spring:

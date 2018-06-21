@@ -1,0 +1,6 @@
+{
+  "primaryServerName": "springprimarydemo",
+  "primaryDbName": "springmusicdb",
+  "secondaryServerName": "springsecondarydemo",
+  "failoverGroupName": "springfailoverdb"
+}
