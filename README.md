@@ -112,7 +112,10 @@ In `build.gradle`, uncomment the line `compile files('libs/ojdbc8.jar')` or `com
 
 ## PCF Azure SQL DB Failover services
 
+```
 cf create-service azure-sqldb PremiumP2 springdemodb -c ./springmusicdb.json
-cf create-service azure-sqldb-failover-group SecondaryDatabaseWithFailoverGroup springfailoverdb -c ./failover.json
-cf bind-service spring-music springfailoverdb
 
+cf create-service azure-sqldb-failover-group SecondaryDatabaseWithFailoverGroup springfailoverdb -c ./failover.json
+
+cf bind-service spring-music springfailoverdb
+```
