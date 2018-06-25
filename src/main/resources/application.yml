@@ -60,5 +60,5 @@ spring:
   profiles: mongodb
   data:
     mongodb:
-      uri: mongodb://phase1demo:zxmScmOzgGq0D6VReGDkJuWcuwFB8XRkHQeSXOviIQ2oBa7skGXzsyOMlZtLEIwX2v1xl33UkplyaWMOGAywsg==@phase1demo.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+      uri: mongodb://
 
