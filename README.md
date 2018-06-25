@@ -112,6 +112,7 @@ In `build.gradle`, uncomment the line `compile files('libs/ojdbc8.jar')` or `com
 
 ## PCF Azure SQL DB Failover services
 
+### Setup Failover group
 ```
 cf create-service azure-sqldb PremiumP2 springdemodb -c ./springmusicdb.json
 
@@ -119,3 +120,20 @@ cf create-service azure-sqldb-failover-group SecondaryDatabaseWithFailoverGroup 
 
 cf bind-service spring-music springfailoverdb
 ```
+
+### Configure application
+
+To use `Always Encrypted` feature of SQLServer configure SevicePrincipal  to have access to the Azure KeyVault with Master Encryption keys.
+This principal has to have following permissions `get,wrapKey,unwrapKey,sign,verify,list`
+
+Set the following environment settings for the application:
+```
+  microsoft.vault.clientId: <CLIENT ID for Vault SPN>
+  microsoft.vault.clientSecret:  <CLIENT Secret for Vault SPN>
+  spring.datasource.dataSourceProperties.ColumnEncryptionSetting: Enabled
+```
+
+Once `spring.datasource.dataSourceProperties.ColumnEncryptionSetting` is set to `Enabled`, JDBC driver will be set to use Azure Key Vault Provider
+to encrypt and decrypt column values.
+
+The code that does the enablement could be found in the class `org.cloudfoundry.samples.music.config.data.DataSourceBeanPostProcessor`
