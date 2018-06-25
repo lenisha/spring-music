@@ -35,6 +35,9 @@ public class DataSourceBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
         if (bean instanceof DataSource) {
+            if ( clientId ==null || clientId.isEmpty() || clientSecret == null || clientSecret.isEmpty() )
+                throw new FatalBeanException("AlwaysEncrypted feature requires Service Principal that has access to Vaulr - setup clientId and ClientSecret");
+
             try {
                 logger.info ("initializing DataSource AlwaysEncryption Vault provider");
                 SQLServerColumnEncryptionAzureKeyVaultProvider akvProvider =
