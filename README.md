@@ -137,3 +137,23 @@ Once `spring.datasource.dataSourceProperties.ColumnEncryptionSetting` is set to 
 to encrypt and decrypt column values.
 
 The code that does the enablement could be found in the class `org.cloudfoundry.samples.music.config.data.DataSourceBeanPostProcessor`
+
+## Important!!
+
+If the keys are being changed, table dropped and re-encypted clear database cache
+
+```
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
+```
+
+Otherwise you may see errors like
+```
+SQL Error: 206, SQLState: S0002
+ .h.engine.jdbc.spi.SqlExceptionHelper   : Operand type clash: varchar(6) encrypted with (encryption_type = 'DETERMINISTIC', encryption_algorithm_name = 'AEAD_AES_256_CBC_HMAC_SHA_256', column_encryption_key_name = 'CEK_Auto1', column_encryption_key_database_name = 'springmusicdb2') collation_name = 'SQL_Latin1_General_CP1_CI_AS' is incompatible with varchar(6) encrypted with (encryption_type = 'DETERMINISTIC', encryption_algorithm_name = 'AEAD_AES_256_CBC_HMAC_SHA_256', column_encryption_key_name = 'CEKPosh1', column_encryption_key_database_name = 'springmusicdb2') collation_name = 'SQL_Latin1_General_CP1_CI_AS'
+```
+
+or if old key was deleted
+```
+o.h.engine.jdbc.spi.SqlExceptionHelper : Some parameters or columns of the batch require to be encrypted, but the corresponding column encryption key cannot be found. Use sp_refresh_parameter_encryption to refresh the module parameters metadata.
+2018-07-10T10:34:35.117-04:00 [APP/PROC/WEB/0] [OUT] 2018-07-10 14:34:35.117 ERROR 15 --- [nio-8080-exec-5] o.h.i.ExceptionMapperStandardImpl : HHH000346: Error during managed flush
+```
