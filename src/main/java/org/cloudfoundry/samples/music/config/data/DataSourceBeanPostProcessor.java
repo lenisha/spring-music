@@ -22,9 +22,10 @@ import java.util.Map;
 public class DataSourceBeanPostProcessor implements BeanPostProcessor {
     private static final Logger logger = LoggerFactory.getLogger(DataSourceBeanPostProcessor.class);
 
-    @Value("${microsoft.vault.clientId}")
+
+    @Value("${azure.sqlserver.keyvault.client-id}")
     private String clientId;
-    @Value("${microsoft.vault.clientSecret}")
+    @Value("${azure.sqlserver.keyvault.client-secret}")
     private String clientSecret;
 
     @Override

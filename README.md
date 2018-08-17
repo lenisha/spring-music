@@ -121,6 +121,12 @@ cf create-service azure-sqldb-failover-group SecondaryDatabaseWithFailoverGroup 
 cf bind-service spring-music springfailoverdb
 ```
 
+### Connect to Failover group on the Secondary site
+```
+cf create-service azure-sqldb-failover-group  ExistingDatabaseInFailoverGroup springfailoverdb2 -c ./failover.json
+```
+
+
 ### Configure application
 
 To use `Always Encrypted` feature of SQLServer configure SevicePrincipal  to have access to the Azure KeyVault with Master Encryption keys.

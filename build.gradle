@@ -1,7 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
-        springCloudConnectorsVersion = '2.0.1.RELEASE'
+        //springBootVersion = '2.0.1.RELEASE'
+        //springCloudConnectorsVersion = '2.0.1.RELEASE'
+        springBootVersion = '1.5.13.RELEASE'
+        springCloudConnectorsVersion = '1.2.6.RELEASE'
     }
 
     repositories {
@@ -40,8 +42,10 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.springframework.boot:spring-boot-starter-data-mongodb"
     compile "org.springframework.boot:spring-boot-starter-data-redis"
+    //compile "com.microsoft.azure:azure-sqlserver-spring-boot-starter:2.0.5-SNAPSHOT"
 
     // Spring Cloud Connectors
+    compile "org.springframework.cloud:spring-cloud-core:${springCloudConnectorsVersion}"
     compile "org.springframework.cloud:spring-cloud-spring-service-connector:${springCloudConnectorsVersion}"
     compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:${springCloudConnectorsVersion}"
 
@@ -49,7 +53,7 @@ dependencies {
     runtime "com.h2database:h2"
     runtime "mysql:mysql-connector-java"
     runtime "org.postgresql:postgresql"
-    compile "com.microsoft.sqlserver:mssql-jdbc"
+    compile "com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8"
     compile 'com.microsoft.azure:azure-keyvault:1.0.0'
     compile 'com.microsoft.azure:adal4j:1.6.0'
 

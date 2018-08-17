@@ -3,13 +3,14 @@ applications:
 - name: spring-music
   memory: 1G
   buildpack: java_buildpack_offline
-  path: build/libs/spring-music-1.0.jar
+  path: build/libs/spring-music.jar
   routes:
     - route: spring-music-eneros.apps.137.135.115.90.cf.pcfazure.com
   services:
-   - springfailoverdb
+   - springdemodb
   env:
-    microsoft.vault.clientId: <CLIENT ID for Vault SPN>
-    microsoft.vault.clientSecret:  <CLIENT Secret for Vault SPN>
+    azure.sqlserver.keyvault.client-id: <INSERT>
+    azure.sqlserver.keyvault.client-secret: <INSERT>
     spring.datasource.dataSourceProperties.ColumnEncryptionSetting: Enabled
+    spring.datasource.connectionProperties: ColumnEncryptionSetting=Enabled
 

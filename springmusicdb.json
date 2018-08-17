@@ -1,6 +1,6 @@
 {
   "sqlServerName": "springprimarydemo",
-  "sqldbName": "springmusicdb",
+  "sqldbName": "springmusicdb2",
   "sqlServerParameters": {
     "allowSqlServerFirewallRules": [
       {

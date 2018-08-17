@@ -1,6 +1,8 @@
 spring:
   jpa:
     generate-ddl: true
+    properties.hibernate.format-sql: true
+    properties.hibernate.show-sql: true
 
 management:
   endpoints:
@@ -9,25 +11,30 @@ management:
         include: "*"
     health:
       sensitive: false
+
+logging.level.org.hibernate:
+  SQL: DEBUG
+  type.descriptor.sql.BasicBinder: TRACE
+
 ---
 spring:
   profiles: sqlserver-local
   datasource:
-    url: "jdbc:sqlserver://springprimarydemo.database.windows.net:1433;database=u3b3afa7779b;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.windows.net;loginTimeout=30"
+    url: "jdbc:sqlserver://springprimarydemo.database.windows.net:1433;database=springmusicdb2;Encrypt=true;TrustServerCertificate=false;HostNameInCertificate=*.database.windows.net;loginTimeout=30"
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     dataSourceProperties.ColumnEncryptionSetting: "Enabled"
-    username: <DB USER>
-    password: <DB PASSWORD>
-
+    username: <INSERT>
+    password: <INSERT>
+    connectionProperties: ColumnEncryptionSetting=Enabled
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
 
-microsoft:
-  vault: #springdemosp
-    clientId: <VAULT SP ClientID>
-    clientSecret: <VAULT SP Client Secret>
+azure:
+  sqlserver.keyvault:
+    client-id: <INSERT>
+    client-secret: <INSERT>
 
 ---
 spring:
