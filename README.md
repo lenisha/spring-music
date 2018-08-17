@@ -137,6 +137,7 @@ Set the following environment settings for the application:
   microsoft.vault.clientId: <CLIENT ID for Vault SPN>
   microsoft.vault.clientSecret:  <CLIENT Secret for Vault SPN>
   spring.datasource.dataSourceProperties.ColumnEncryptionSetting: Enabled
+  spring.datasource.connectionProperties: ColumnEncryptionSetting=Enabled
 ```
 
 Once `spring.datasource.dataSourceProperties.ColumnEncryptionSetting` is set to `Enabled`, JDBC driver will be set to use Azure Key Vault Provider
