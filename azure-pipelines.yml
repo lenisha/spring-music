@@ -17,4 +17,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'clean package'
+    tasks: 'clean assemble'
